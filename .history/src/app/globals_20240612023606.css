@@ -1,0 +1,30 @@
+/* tailwind.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom colors */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Define custom color variables */
+@tailwind colors {
+  foreground: rgb(var(--foreground-rgb));
+  background-start: rgb(var(--background-start-rgb));
+  background-end: rgb(var(--background-end-rgb));
+}
+
+/* Apply custom background and text colors */
+body {
+  color: theme('colors.foreground');
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      theme('colors.background-end')
+    )
+    theme('colors.background-start');
+}

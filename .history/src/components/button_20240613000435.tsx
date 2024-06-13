@@ -1,0 +1,29 @@
+import React from "react";
+
+interface ButtonProps {
+  text: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  className?: string; // Add className prop
+}
+
+const Button = ({ text, onClick, disabled = false, className = "" }: ButtonProps) => {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      className={`py-5 px-5 my-5 text-xl inline-flex items-center gap-x-2 font-semibold rounded-full 
+        ${disabled
+          ? "opacity-50 cursor-not-allowed"
+          : "bg-blue-600 text-white hover:bg-blue-700"
+        }
+        ${className}` /* Merge with className prop */
+      }
+    >
+      {text}
+    </button>
+  );
+};
+
+export default Button;
